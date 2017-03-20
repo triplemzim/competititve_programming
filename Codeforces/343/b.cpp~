@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+	int n,a,b;
+	char ch;
+	int f[444]={0},m[444]={0};
+
+
+	scanf("%d",&n);
+
+	for(int i=0;i<n;i++){
+		scanf(" %c %d %d",&ch,&a,&b);
+		cout<<ch<<' '<<a<<' '<<b<<endl;
+	}
+
+
+	return 0;
+
+}

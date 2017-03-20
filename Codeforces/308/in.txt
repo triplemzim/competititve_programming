@@ -1,0 +1,15 @@
+#define mx 100000000
+#define LMT 10000
+
+unsigned prime[mx>>6];
+
+#define CHK(n) (prime[n>>6]&(1<<((n>>1)&31)))
+#define SET(n) (prime[n>>6]|=(1<<((n>>1)&31)))
+
+void sieve() {
+    unsigned i, j, k;
+    for(i=3; i<LMT; i+=2)
+        if(!CHK(i))
+            for(j=i*i, k=i<<1; j<mx; j+=k)
+                SET(j);
+}

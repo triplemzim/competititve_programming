@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+#define ms(x,val) memset(x,val,sizeof(x))
+#define ull unsigned long long
+#define iii long long
+#define pi acos(-1)
+#define pb push_back
+#define PII pair<int,int>
+#define MP make_pair
+#define eps 1e-9
+#define inf 999999999
+#define MAXN 1000009
+#define MOD 1000000007 // 10^9 + 7
+
+char prefix_fun[MAXN];
+int len;
+
+vector<int> cal_prefix_fun(string ch)
+{
+   int len=ch.length();
+   int k=0;
+   vector<int> v(len,0);
+   for(int i=1;i<len;i++)
+   {
+       while(k>0 && ch[k]!=ch[i]) k=v[k];
+       if(ch[i]==ch[k]) k++;
+       v[i]=k;
+   }
+
+   return v;
+} 
+
+int substring_match(string ST,string sub_st)
+{
+    vector<int> v;
+    v=cal_prefix_fun(sub_st);
+    int count=0,k=0,len=ST.length(),m=sub_st.length();
+    for(int i=0;i<len;i++)
+    {
+        while(k>0 && ST[i]!=sub_st[k]) k=v[k];
+        if(ST[k]==ST[i]) k++;
+        if(k==m)
+        {
+            count++;
+            k=v[k];
+        }
+    }
+    return count;
+}
+    
+
+int main()
+{
+    
+    vector<int> v;
+    v=cal_prefix_fun("mynameiskhan");
+    for(int i=0;i<v.size();i++)
+     {
+         cout<<v[i]<<' ';
+     }
+     cout<<endl;
+     cout<<substring_match("mynamemymymymyan","my")<<endl;
+
+
+
+    return 0;
+}

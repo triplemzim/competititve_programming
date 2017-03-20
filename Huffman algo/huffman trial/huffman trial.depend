@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1388087996 source:/home/zim/Desktop/Huffman algo/huffman trial/main.cpp
+	<stdio.h>
+	<queue>
+	<string.h>
+
